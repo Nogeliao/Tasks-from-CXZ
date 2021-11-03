@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/POINTER.dir/pointer.cpp.o  -o POINTER 
