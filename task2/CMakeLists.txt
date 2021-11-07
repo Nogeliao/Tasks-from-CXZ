@@ -1,8 +1,29 @@
+# cmake_minimum_required(VERSION 3.5)
+# project(SORT)
+
+# IF(NOT CMAKE_BUILD_TYPE)
+#   SET(CAMKE_BUILD_TYPE Release)
+# ENDIF()
+
+# add_executable(SORT sort-1.cpp)
+
+#1.cmake verson，指定cmake版本 
 cmake_minimum_required(VERSION 3.5)
-project(SORT)
+#2.project name，指定项目的名称，一般和项目的文件夹名称对应
+PROJECT(SORT)
 
-IF(NOT CMAKE_BUILD_TYPE)
-  SET(CAMKE_BUILD_TYPE Release)
-ENDIF()
+#将可执行文件生成在bin文件夹中
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
-add_executable(SORT sort-1.cpp)
+#包含的头文件目录  
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
+
+#指定源文件目录并赋值给DIR_SRCS变量
+AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/src DIR_SRCS)
+
+
+MESSAGE(STATUS "开始构建")       
+#设置变量TEST_MATH 
+SET(SRC_PATH ${DIR_SRCS})
+#将TEST_MATH变量值作为地址，将地址下的文件编译成文件名为PROJECT_NAME变量值的可执行文件
+ADD_EXECUTABLE(${PROJECT_NAME} ${SRC_PATH})

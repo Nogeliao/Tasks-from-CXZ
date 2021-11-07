@@ -2,7 +2,7 @@
 
 using namespace three_dimensional_array_sort;
 
-void three_dimensional_array_sort::ThreeDimensionalArraySort::sort_array_3d(int *** const pp_, const size_t &length_, const size_t &width_, const size_t &height_){
+void three_dimensional_array_sort::sort_array_3d(int *** const pp_, const size_t &length_, const size_t &width_, const size_t &height_, OneDimensionalSort &obj_){
     bool direction[3][3] = {{0,0,1},{0,1,0},{1,0,0}}; // describe the direction
     for(size_t iter=0; iter<3; iter++){
         bool length_flag = direction[iter][0];
@@ -14,7 +14,7 @@ void three_dimensional_array_sort::ThreeDimensionalArraySort::sort_array_3d(int 
                     int* start_point = & pp_[i][j][k];
                     size_t len = length_ * length_flag + width_ * width_flag + height_ * height_flag;
                     size_t step = (int *)&pp_[length_flag][width_flag][height_flag] - (int *)&pp_[0][0][0];
-                    sort_array_1d(start_point, len, step);
+                    obj_.sort_array_1d(start_point, len, step);
                 }
             }
         }
@@ -35,7 +35,7 @@ void three_dimensional_array_sort::BubbleSort::sort_array_1d(int* const p_, cons
         }
         if(no_exchange) break;
     }
-    // std::cout<<"Bubble sort"<<std::endl;
+    std::cout<<"Bubble sort"<<std::endl;
     return;
 }
 

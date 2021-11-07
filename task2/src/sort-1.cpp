@@ -169,18 +169,20 @@ int main(int argc, char *argv[])
 
     //// sort the ed array
     // sort_array_3d(pp,length,width,height,argv[4]);
+    OneDimensionalSort *ps;
     if( strcmp(argv[4], "selection_sort") == 0 ){
         SelectionSort sel_sort;
-        sel_sort.sort_array_3d(pp, length, width, height);
+        ps = &sel_sort;
     }   
     else if( strcmp(argv[4], "insertion_sort") == 0 ){
         InsertionSort ins_sort;
-        ins_sort.sort_array_3d(pp, length, width, height);
+        ps = &ins_sort;
     }     
     else if( strcmp(argv[4], "bubble_sort") == 0 ){
         BubbleSort bub_sort;
-        bub_sort.sort_array_3d(pp, length, width, height);
+        ps = &bub_sort;
     }
+    three_dimensional_array_sort::sort_array_3d(pp, length, width, height, *ps);
     print_array_3d(pp,length,width,height);
 
     //// test
