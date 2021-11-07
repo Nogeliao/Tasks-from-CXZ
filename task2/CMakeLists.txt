@@ -5,4 +5,4 @@ IF(NOT CMAKE_BUILD_TYPE)
   SET(CAMKE_BUILD_TYPE Release)
 ENDIF()
 
-add_executable(SORT sort.cpp)
+add_executable(SORT sort-1.cpp)

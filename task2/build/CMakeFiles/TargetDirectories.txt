@@ -1,3 +1,0 @@
-/mnt/d/cxz/task2/build/CMakeFiles/rebuild_cache.dir
-/mnt/d/cxz/task2/build/CMakeFiles/edit_cache.dir
-/mnt/d/cxz/task2/build/CMakeFiles/SORT.dir
